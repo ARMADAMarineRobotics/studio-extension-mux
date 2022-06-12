@@ -1,0 +1,12 @@
+<launch>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
+  <node name="a" pkg="rostopic" type="rostopic"
+        args="pub /a std_msgs/String a -r 1" />
+  <node name="b" pkg="rostopic" type="rostopic"
+        args="pub /b std_msgs/String b -r 1" />
+  <node name="c" pkg="rostopic" type="rostopic"
+        args="pub /c std_msgs/String c -r 1" />
+
+  <node name="mux" pkg="topic_tools" type="mux" args="/out /a /b" />
+</launch>

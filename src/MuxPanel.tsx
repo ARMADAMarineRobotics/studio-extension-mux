@@ -236,7 +236,7 @@ function MuxPanel(
                             </InputLabel>
                             <Select
                                 labelId={`select-label-${i}`}
-                                value={mux.active}
+                                value={mux.active ?? ""}
                                 label={mux.name}
                                 onChange={(e) => onMuxChange(mux, e)}
                             >
